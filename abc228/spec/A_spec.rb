@@ -6,6 +6,13 @@ RSpec.describe 'test' do
     expect(io.readlines.join).to eq("Yes\n")
   end
 
+  it 'test with "7 20 20\n"' do
+    io = IO.popen("ruby abc228/A.rb", "w+")
+    io.puts("7 20 20\n")
+    io.close_write
+    expect(io.readlines.join).to eq("No\n")
+  end
+
   it 'test with "20 7 12\n"' do
     io = IO.popen("ruby abc228/A.rb", "w+")
     io.puts("20 7 12\n")
@@ -20,4 +27,10 @@ RSpec.describe 'test' do
     expect(io.readlines.join).to eq("Yes\n")
   end
 
+  it 'test with "23 5 5\n"' do
+    io = IO.popen("ruby abc228/A.rb", "w+")
+    io.puts("23 5 5\n")
+    io.close_write
+    expect(io.readlines.join).to eq("No\n")
+  end
 end
