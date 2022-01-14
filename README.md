@@ -1,0 +1,3 @@
+- https://atcoder.jp/contests/
+- https://kenkoooo.com/atcoder/#/table/okepy
+- https://github.com/QWYNG/green_day
