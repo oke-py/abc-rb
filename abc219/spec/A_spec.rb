@@ -27,4 +27,18 @@ RSpec.describe 'test' do
     expect(io.readlines.join).to eq("expert\n")
   end
 
+  it 'test with "39\n"' do
+    io = IO.popen("ruby abc219/A.rb", "w+")
+    io.puts("39\n")
+    io.close_write
+    expect(io.readlines.join).to eq("1\n")
+  end
+
+  it 'test with "40\n"' do
+    io = IO.popen("ruby abc219/A.rb", "w+")
+    io.puts("40\n")
+    io.close_write
+    expect(io.readlines.join).to eq("30\n")
+  end
+
 end
