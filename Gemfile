@@ -3,3 +3,4 @@
 source "https://rubygems.org"
 
 gem 'green_day'
+gem 'rubocop', require: false
