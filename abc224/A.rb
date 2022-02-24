@@ -1,1 +1,1 @@
-puts gets.chomp[-2, 2] == "er" ? "er" : "ist"
+puts gets.chomp[-2, 2] == 'er' ? 'er' : 'ist'

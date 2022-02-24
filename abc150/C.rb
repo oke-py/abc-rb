@@ -6,4 +6,4 @@ numbers = (1..N).to_a.permutation.map do |perm|
 end.sort
 a = numbers.index(pn)
 b = numbers.index(qn)
-puts a < b ? b - a : a -b
+puts a < b ? b - a : a - b

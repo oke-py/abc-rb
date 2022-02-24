@@ -1,1 +1,1 @@
-puts gets.to_f.round()
+puts gets.to_f.round

@@ -1,1 +1,2 @@
-gets;puts $<.readlines.uniq.count
+gets
+puts $<.readlines.uniq.count

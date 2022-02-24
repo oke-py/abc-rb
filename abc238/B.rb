@@ -11,9 +11,7 @@ s.add(360)
 ans = 0
 prev = 0
 s.sort.each do |v|
-  if v - prev > ans
-    ans = v - prev
-  end
+  ans = v - prev if v - prev > ans
   prev = v
 end
 puts ans

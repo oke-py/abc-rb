@@ -1,2 +1,2 @@
 H = gets.to_i
-puts Math.sqrt(H * (12800000 + H))
+puts Math.sqrt(H * (12_800_000 + H))

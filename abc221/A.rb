@@ -1,2 +1,2 @@
 a, b = gets.chomp.split.map(&:to_i)
-puts 32 ** (a - b)
+puts 32**(a - b)

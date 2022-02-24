@@ -1,9 +1,8 @@
 a = 0
 gets
 gets.split.map(&:to_i).each do |h|
-  if a >= h
-    break
-  end
+  break if a >= h
+
   a = h
 end
 puts a

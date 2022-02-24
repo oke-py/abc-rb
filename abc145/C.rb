@@ -5,11 +5,9 @@ ans = 0
   distance = 0
   prev = nil
   perm.each do |i|
-    if !prev.nil?
-      distance += Math.sqrt((towns[i - 1][0] - prev[0]) ** 2 + (towns[i - 1][1] - prev[1]) ** 2)
-    end
+    distance += Math.sqrt((towns[i - 1][0] - prev[0])**2 + (towns[i - 1][1] - prev[1])**2) unless prev.nil?
     prev = towns[i - 1]
   end
   ans += distance
 end
-puts (ans / (1..N).inject(1,:*)).round(10)
+puts (ans / (1..N).inject(1, :*)).round(10)
