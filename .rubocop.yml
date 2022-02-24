@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - '*/spec/*'
+
+Lint/EmptyFile:
+  Exclude:
+    - '*/*.rb'
+
+Naming/FileName:
+  Exclude:
+    - '*/*.rb'
