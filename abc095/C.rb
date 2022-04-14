@@ -1,9 +1,10 @@
-a, b, c, x, y = gets.chomp.split.map(&:to_i)
+# frozen_string_literal: true
+
+A, B, C, X, Y = gets.chomp.split.map(&:to_i)
+
 ans = 10**10
-0.upto([x, y].max) do |k|
-  i = [x - k, 0].max
-  j = [y - k, 0].max
-  price = a * i + b * j + c * k * 2
+0.step(by: 2, to: [X, Y].max * 2) do |c|
+  price = [0, A * (X - (c / 2))].max + [0, B * (Y - (c / 2))].max + (C * c)
   ans = price if price < ans
 end
 puts ans
