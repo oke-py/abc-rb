@@ -10,3 +10,7 @@ Lint/EmptyFile:
 Naming/FileName:
   Exclude:
     - '*/*.rb'
+
+Naming/MethodParameterName:
+  Exclude:
+    - '*/*.rb'

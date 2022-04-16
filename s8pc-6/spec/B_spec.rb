@@ -20,4 +20,10 @@ RSpec.describe 'test' do
     expect(io.readlines.join).to eq("8494550716\n")
   end
 
+  it 'test with "4\n10 100\n15 100\n20 100\n40 100\n"' do
+    io = IO.popen("ruby s8pc-6/B.rb", "w+")
+    io.puts("4\n10 100\n15 100\n20 100\n40 100\n")
+    io.close_write
+    expect(io.readlines.join).to eq("350\n")
+  end
 end
