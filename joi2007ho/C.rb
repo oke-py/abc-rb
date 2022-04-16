@@ -1,35 +1,37 @@
 # frozen_string_literal: true
 
-def inside?(x, y)
-  x.between?(0, 5000) && y.between?(0, 5000)
-end
-
-def valid?(v, point)
-  inside?(*point[0]) && inside?(*point[1]) && v[point[0][0]].include?(point[0][1]) && v[point[1][0]].include?(point[1][1])
-end
+require 'set'
 
 n = gets.to_i
-ans = 0
+A = 10**4
+area = 0
+set = Set.new
+xy = []
 
-# u = [[x1, y1], [x2, y2], ...]
-# v[x1] = [y2, y3, y4, ...]
-u = []
-v = Array.new(5001) { [] }
 n.times do
   x, y = gets.chomp.split.map(&:to_i)
-  u << [x, y]
-  v[x] << y
+  xy << [x, y]
+  set.add(x + (A * y))
 end
 
-[*0...n].combination(2).each do |c|
-  dx = u[c[0]][0] - u[c[1]][0]
-  dy = u[c[0]][1] - u[c[1]][1]
+(0..(n - 2)).each do |i|
+  xi, yi = xy[i]
+  ((i + 1)..(n - 1)).each do |j|
+    xj, yj = xy[j]
 
-  p1 = [[u[c[0]][0] - dy, u[c[0]][1] + dx], [u[c[1]][0] - dy, u[c[1]][1] + dx]]
-  p2 = [[u[c[0]][0] + dy, u[c[0]][1] - dx], [u[c[1]][0] + dy, u[c[1]][1] - dx]]
+    dx = xi - xj
+    dy = yi - yj
 
-  current = valid?(v, p1) || valid?(v, p2) ? (dx**2) + (dy**2) : 0
-  ans = current if ans < current
+    x1 = xi + dy
+    y1 = yi - dx
+    x2 = xj + dy
+    y2 = yj - dx
+
+    if set.include?(x1 + (A * y1)) && set.include?(x2 + (A * y2))
+      current = (dx**2) + (dy**2)
+      area = current if area < current
+    end
+  end
 end
 
-puts ans
+puts area
