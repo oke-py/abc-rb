@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 N = gets.to_i
-pn = gets.split.join.to_i
-qn = gets.split.join.to_i
-numbers = (1..N).to_a.permutation.map do |perm|
-  perm.join.to_i
-end.sort
-a = numbers.index(pn)
-b = numbers.index(qn)
-puts a < b ? b - a : a - b
+P = gets.chomp.split.map(&:to_i)
+Q = gets.chomp.split.map(&:to_i)
+perm = [*1..N].permutation.to_a
+a = perm.index(P)
+b = perm.index(Q)
+puts (a - b).abs
