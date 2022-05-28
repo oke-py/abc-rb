@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-a = gets.chomp.split.map(&:to_i)
-b = a.sort
-puts a[1] == b[1] ? 'Yes' : 'No'
+a, b, c = gets.chomp.split.map(&:to_i)
+if (a <= b && b <= c) || (a >= b && b >= c)
+  puts 'Yes'
+else
+  puts 'No'
+end

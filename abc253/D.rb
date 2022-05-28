@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+def f(n)
+  n * (n + 1) / 2
+end
+
 N, A, B = gets.chomp.split.map(&:to_i)
 
 a = N / A
 b = N / B
-l = A.lcm(B)
-c = N / l
+L = A.lcm(B)
+l = N / L
 
-ab = (A * a * (a + 1) / 2) + (B * b * (b + 1) / 2)
-puts (N * (N + 1) / 2) + (l * c * (c + 1) / 2) - ab
+puts f(N) - (A * f(a)) - (B * f(b)) + (L * f(l))
