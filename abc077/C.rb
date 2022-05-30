@@ -2,22 +2,17 @@
 
 N = gets.to_i
 A = gets.chomp.split.map(&:to_i).sort
-B = gets.chomp.split.map(&:to_i).sort
+B = gets.chomp.split.map(&:to_i)
 C = gets.chomp.split.map(&:to_i).sort
 
-b1 = B.map do |b|
-  i = C.bsearch_index { |c| c > b }
-  i.nil? ? 0 : B.size - i
-end
+ans = B.sum(0) do |b|
+  i = A.bsearch_index { |v| v >= b }
+  a = i.nil? ? N : i
 
-b2 = [b1.last]
-(N - 1).times do |i|
-  b2.unshift b2[0] + b1[N - i - 2]
-end
+  j = C.bsearch_index { |v| v > b }
+  c = j.nil? ? 0 : N - j
 
-ans = A.map do |a|
-  i = B.bsearch_index { |b| b > a }
-  i.nil? ? 0 : b2[i]
-end.sum
+  a * c
+end
 
 puts ans
