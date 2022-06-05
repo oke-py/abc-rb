@@ -1,9 +1,14 @@
-require 'set'
-s = Set.new
-n = gets.to_i
+# frozen_string_literal: true
+
+N = gets.to_i
+
 9.times do |i|
   9.times do |j|
-    s.add((i + 1) * (j + 1))
+    if (i + 1) * (j + 1) == N
+      puts 'Yes'
+      exit
+    end
   end
 end
-puts s.include?(n) ? 'Yes' : 'No'
+
+puts 'No'
